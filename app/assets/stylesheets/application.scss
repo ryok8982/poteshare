@@ -19,3 +19,25 @@
 .notification:not(:last-child){
     margin-bottom: 0;
 }
+
+header{
+    display:flex;
+    background-color:#ADD8E6;
+    width:100%;
+    justify-content:space-between;
+    height:60px;
+    align-items:center;
+}
+
+.header-right{
+    margin-right:30px;
+}
+
+.title{
+    color:white;
+}
+
+.drawer-hamburger-icon{
+    border-color:white;
+}
+

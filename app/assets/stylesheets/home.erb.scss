@@ -1,0 +1,15 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top{
+    height:900px;
+    background-color: red;
+}
+
+.indexTopWrapper{
+    padding-top:100px;
+    background-image:url("<%= asset_path('img_cover_top.jpg') %>");
+    height:100%;
+    
+}
