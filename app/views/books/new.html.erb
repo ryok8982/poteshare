@@ -1,0 +1,19 @@
+<h1>Books#new</h1>
+<p>Find me in app/views/books/new.html.erb</p>
+
+<%= form_for [@room, @room.books.new] do |f| %>
+
+<%= f.hidden_field :room_id, value: @room.id %>
+
+<%= f.label :check_in %>
+<%= f.date_field :check_in %>
+
+<%= f.label :check_out %>
+<%= f.date_field :check_out %>
+
+<%= f.label :people %>
+<%= f.number_area :people %>
+
+<%= f.submit %>
+
+<% end %>

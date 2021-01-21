@@ -1,0 +1,23 @@
+<h1>Rooms#new</h1>
+<p>Find me in app/views/rooms/new.html.erb</p>
+
+<%= form_for @room do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :body %>
+<%= f.text_area :body %>
+
+<%= f.label :price %>
+<%= f.number_field :price %>
+
+<%= f.label :address %>
+<%= f.text_field :address %>
+
+<%= f.label :room_image %>
+<%= f.attachment_field :room_image %>
+
+<%= f.submit %>
+
+<% end %>

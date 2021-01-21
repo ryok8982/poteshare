@@ -1,0 +1,24 @@
+<h1>Rooms#show</h1>
+<p>Find me in app/views/rooms/show.html.erb</p>
+
+<%= attachment_image_tag @room, :room_image %>
+
+<%= @room.title %>
+
+<%= simple_format @room.body %>
+
+<%= @room.price %>
+
+<%= @room.address %>
+
+<%= link_to "予約", new_room_book_path(@room), class: "button is-warning is-light" %>
+
+<% if @room.user.id == current_user.id %>
+    <%= link_to "編集", edit_room_path(@room), class:"button is-success" %>
+<% end %>
+
+
+
+<%= link_to user_path(@room.user) do %>
+    <%= @room.user.username %>さんのページ
+<% end %>

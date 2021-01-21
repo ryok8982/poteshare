@@ -1,5 +1,4 @@
 <h1>マイページ</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 
 <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "profile_image is-rounded" %>
 
@@ -14,6 +13,18 @@
 <% end %>
 
 <%= @user.profile %>
+
+
+<% @user.rooms.each do |room| %>
+<%= attachment_image_tag room, :room_image %>
+<%= link_to "詳細", room_path(room) %>
+
+<% if @user.id == current_user.id %>
+<%= link_to "編集", edit_room_path(room) %>
+<%= link_to "削除", room_path(room), method: :delete, data: {confirm: "削除しますか？"} %>
+<% end %>
+更新日時：<%= room.updated_at.strftime("%Y-%m-%d %H:%M") %>
+<% end %>
 
 
 
