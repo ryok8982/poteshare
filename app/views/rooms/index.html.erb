@@ -7,8 +7,5 @@
 <%= room.title %>
 <% end %>
 
-<%= link_to user_path(room.user.id) do %>
-<%= room.user.username %>
-<% end %>
 更新日時：<%= room.updated_at.strftime("%Y-%m-%d %H:%M") %>
 <% end %>

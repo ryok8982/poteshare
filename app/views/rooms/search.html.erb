@@ -1,0 +1,10 @@
+
+<ul><% @rooms.each do |room| %>
+  <li>
+    <%= link_to room.title, room %>
+    <%= attachment_image_tag room, :room_image %>
+    <%= room.title %>
+
+  </li>
+  <% end %>
+</ul>

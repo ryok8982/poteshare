@@ -24,6 +24,10 @@
     <%= link_to root_path, class: "navbar-item" do %>
       <h1 class="title is-4" style="fony-family: cursive;">poteshare</h1>
     <% end %>
+    <%= form_tag(rooms_path,:method => 'get') do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'Search', :title => nil %>
+    <% end %>
     <div class="hedaer-right">
     <% if user_signed_in? %>
       <button type="button" class="drawer-toggle drawer-hamburger">
@@ -49,7 +53,7 @@
       </div>
     <% end %>
   </header>
-      
+  
     
   
   <main role="main">

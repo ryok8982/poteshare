@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users
   resources :rooms do
+    get :search, on: :collection
     resources :books 
   end
 end
