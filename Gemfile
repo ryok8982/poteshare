@@ -72,3 +72,5 @@ gem "bulma-rails"
 gem 'jquery-rails'
 
 gem 'ransack'
+
+gem 'pry-rails'

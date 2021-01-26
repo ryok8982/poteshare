@@ -1,15 +1,9 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, expect: [:index, :search]
+  before_action :authenticate_user!, expect: [:index]
   
   def index
-   @rooms = Room.where(activated: true).where('title LIKE ?', "%#{params[:search]}%")
+   @rooms = Room.where('title LIKE ? or address LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
   end
-  
-  def search
-    @rooms = Room.search(params[:search])
-  end
-  
-
 
   def show
     @room = Room.find(params[:id])
