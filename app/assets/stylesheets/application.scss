@@ -23,16 +23,24 @@
 header{
     position:fixed;
     display:flex;
-    background-color:#ADD8E6;
+    background-color:black;
     width:100%;
     justify-content:space-between;
     height:60px;
     align-items:center;
     z-index:100;
 }
+.header-left{
+    display:flex;
+    padding-left:60px;
+}
+.header-form{
+    padding-top:5px;
+    padding-left:10px;
+}
 
 .header-right{
-    margin-right:30px;
+    padding-right:30px;
 }
 
 .title{
@@ -55,4 +63,12 @@ main{
   border-radius:50%;  
   height:100px;
   width:100px;
+}
+
+.navbar{
+   margin-right:40px;
+}
+
+.username{
+    margin-right:100px;
 }

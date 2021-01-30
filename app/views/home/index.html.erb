@@ -4,8 +4,13 @@
         <div class="container">
             <div class="formContainer">
             <h1>Potepan Shareでまだ体験したことのない旅をしよう</h1>
-            <p>エリア</p>
-            <p>ここに検索フォームを後ほど実装</p>
+            <p>エリアorキーワード</p>
+            <div class="container-form">
+                <%= form_tag(rooms_path,:method => 'get') do %>
+                <%= text_field_tag :search,"", class: "input block is-normal"  %>
+                </br><%= submit_tag 'Search', :title => nil, class: "formbottun button block is-info is-fullwidth"  %>
+                <% end %>
+            </div>
             </div>
         </div>
     </div>
@@ -14,14 +19,20 @@
     <div class=recomendContainer>
         <h1>おすすめエリア</h1>
         <ul class="area-imgs">
-            <%= link_to rooms_path(@rooms = Room.where('address LIKE ?', "%#{params["東京"]}%")) do %> 
+            <%= link_to rooms_path(search: "東京") do %> 
             <li><span>東京</span><a class="indexTokyo recomendLink"><img class="areaImg" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg"></a></li>
             <% end %>
-            <%= link_to rooms_path,(search["東京"]), method: :get do %>
-            <li><span>大阪</span><a class="indexOsaka recomendLink"><img class="areaImg" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg"></a></li>
+            <%= link_to rooms_path(search: "大阪") do %> 
+               
+               <li><span>大阪</span><a class="indexOsaka recomendLink"><img class="areaImg" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg"></a></li>
+                
             <% end %>
+            <%= link_to rooms_path(params:{search: "京都"}) do %> 
             <li><span>京都</span><a class="indexKyoto recomendLink"><img class="areaImg" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg"></a></li>
+            <% end %>
+            <%= link_to rooms_path(search: "札幌") do %> 
             <li><span>札幌</span><a class="indexSapporo recomendLink"><img class="areaImg" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg"></a></li>
+            <% end %>
         </ul>
         
     </div>

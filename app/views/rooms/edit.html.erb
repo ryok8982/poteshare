@@ -1,23 +1,55 @@
-<h1>Rooms#edit</h1>
-<p>Find me in app/views/rooms/edit.html.erb</p>
-
-<%= form_for @room do |f| %>
-
-<%= f.label :title %>
-<%= f.text_field :title %>
-
-<%= f.label :body %>
-<%= f.text_area :body %>
-
-<%= f.label :price %>
-<%= f.number_field :price %>
-
-<%= f.label :address %>
-<%= f.text_field :address %>
-
-<%= f.label :room_image %>
-<%= f.attachment_field :room_image %>
-
-<%= f.submit %>
-
-<% end %>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        ルーム新規登録
+      </h1>
+    </div>
+  </div>
+</section>
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+            <div class="field">
+                <%= form_for @room do |f| %>
+              <label class="label">ルーム名</label>
+              <div class="control">
+                  <%= f.text_field :title, class: "input"  %>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">ルーム詳細</label>
+              <div class="control ">
+                <%= f.text_area :body, class: "textarea"  %>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">料金</label>
+              <div class="control ">
+                <%= f.number_field :price, class: "input"  %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">住所</label>
+              <div class="control">
+                <%= f.text_field :address, class: "input"  %>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">イメージ写真</label>
+              <div class="control has-icons-left has-icons-right">
+                <%= f.attachment_field :room_image %>
+              </div>
+            </div>
+            <div class="field is-grouped is-grouped-centered">
+              <div class="control">
+                <%= f.submit '確定',class: " button is-link" %>
+              </div>
+            </div>
+            <% end %>
+    </div>
+  </div>
+</div>

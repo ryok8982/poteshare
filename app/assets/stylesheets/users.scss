@@ -1,86 +1,10 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.indexTopWrapper{
-    display:flex;
-    align-items:center;
-    background-image:url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
-    height:650px;
-    background-size:cover;
-}
-
-.formContainer{
-    height:240px;
-    width:477px;
-    padding:24px;
-    background-color:#FFF;
-    border-radius:5px;
-}
-
-.formContainer h1{
-    font-size:28px;
+.user-title{
+    margin:20px 0;
     font-weight:bold;
 }
-
-.middle{
-    margin:0 70px;
-    height:100%;
-}
-
-.recomendContainer{
-    padding:48px;
-}
-
-.recomendContainer h1{
-    font-size:24px;
-    font-weight:bold;
-    margin:35px 0;
-}
-
-.area-imgs{
-    display:flex;
-}
-
-.area-imgs li{
-    flex-basis:25%;
-    padding:15px;
-    display:block;
-    position:relative;
-    text-align:center;
-    
-}
-.area-imgs li span{
-color:#FFF;
-font-size:24px;
-font-weight:bold;
-position:absolute;
-bottom:50px;
-z-index:1;
-width:100%;
-text-align:center;
-padding-right:30px;
-}
-
-.areaImg{
-    object-fit: cover;
-    height:360px;
-    border-radius:5px;
-}
-
-.loginContainer{
-    width:500px;
-    margin:0 auto;
-    text-align:center;
-}
-
-.loginTitle{
-    width:500px;
-    margin:0 auto;
-    text-align:center;
-    font-size:24px;
-}
-
-.rememberContainer{
-    margin:0 auto;
+.user-main{
+    margin:0 200px 0 200px;
 }

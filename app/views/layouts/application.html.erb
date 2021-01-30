@@ -4,7 +4,6 @@
     <title>Poteshare</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/lib..." integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -21,37 +20,53 @@
   
   <body>
   <header class="drawer drawer--right"  role="banner">
-    <%= link_to root_path, class: "navbar-item" do %>
-      <h1 class="title is-4" style="fony-family: cursive;">poteshare</h1>
-    <% end %>
-    <%= form_tag(rooms_path,:method => 'get') do %>
-      <%= text_field_tag :search %>
-      <%= submit_tag 'Search', :title => nil %>
-    <% end %>
+    <div class="header-left">
+      <div class="header-logo">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-4" style="fony-family: cursive;">poteshare</h1>
+        <% end %>
+      </div>
+      <div class="header-form">
+        <%= form_tag(rooms_path,:method => 'get') do %>
+          <%= text_field_tag :search,"", class: "input block is-normal", placeholder: "エリアorキーワード" %>
+        <% end %>
+      </div>
+    </div>
     <div class="hedaer-right">
     <% if user_signed_in? %>
-      <button type="button" class="drawer-toggle drawer-hamburger">
-      <span class="sr-only">toggle navigation</span>
-      <span class="drawer-hamburger-icon"></span>
-    </button>
-    <nav class="drawer-nav" role="navigation">
-      <ul class="drawer-menu">
-        <li><%= link_to "ルーム登録", new_room_path, class: "button is-warning is-light" %> </li>
-        <li><%= link_to "ルーム一覧", rooms_path, class: "button is-warning is-light" %> </li>
-        <li><%= link_to "ユーザー一覧", users_path, class: "button is-warning is-light" %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %></li>
-        <li><%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %></li>
-        
-      </ul>
-    </nav>
+      <nav class="navbar is-black" role="navigation" aria-label="dropdown navigation">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <%= @name %>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item">
+              <%= link_to "ルーム登録", new_room_path, class: "button is-fullwidth" %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to "ルーム一覧", rooms_path, class: "button is-fullwidth" %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to "予約済ルーム一覧", room_books_path(current_user), class: "button is-fullwidth" %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-fullwidth" %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to "マイページ", user_path(current_user), class: "button is-fullwidth" %>
+            </a>
+          </div>
+        </div>
+      </nav>
+      
     <% else %>
       
-        <%= link_to "ユーザー一覧", users_path, class: "button is-warning is-light" %>
+       
         <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
         <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
-        <%= link_to "ルーム一覧", rooms_path, class: "button is-warning is-light" %> 
-      </div>
+      
     <% end %>
+    </div>
   </header>
   
     
