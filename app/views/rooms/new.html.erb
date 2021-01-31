@@ -1,3 +1,4 @@
+
 <section class="hero is-success">
   <div class="hero-body">
     <div class="container">
@@ -7,11 +8,12 @@
     </div>
   </div>
 </section>
+<%= render "shared/error", obj: @room %>
 <div class="card">
   <div class="card-content">
     <div class="content">
+          <%= form_for @room do |f| %>
             <div class="field">
-                <%= form_for @room do |f| %>
               <label class="label">ルーム名</label>
               <div class="control">
                   <%= f.text_field :title, class: "input", placeholder: "ルーム名"  %>
@@ -41,7 +43,7 @@
             <div class="field">
               <label class="label">イメージ写真</label>
               <div class="control has-icons-left has-icons-right">
-                <%= f.attachment_field :room_image %>
+                <%= f.attachment_field :room_image, fallback: "no-image.png" %>
               </div>
             </div>
             <div class="field is-grouped is-grouped-centered">

@@ -20,8 +20,13 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.user_id = current_user.id
-    @room.save
-    redirect_to room_path(@room)
+    if @room.save
+      flash[:notice] = "ルームを新規登録しました"
+      redirect_to room_path(@room)
+    else
+      #こちらの処理が実行されます。
+      render "new"
+    end
     @name = current_user.username
   end
 

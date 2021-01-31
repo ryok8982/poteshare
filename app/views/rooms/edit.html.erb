@@ -10,8 +10,8 @@
 <div class="card">
   <div class="card-content">
     <div class="content">
+          <%= form_for @room do |f| %>  
             <div class="field">
-                <%= form_for @room do |f| %>
               <label class="label">ルーム名</label>
               <div class="control">
                   <%= f.text_field :title, class: "input"  %>

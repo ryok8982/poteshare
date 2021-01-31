@@ -74,3 +74,5 @@ gem 'jquery-rails'
 gem 'ransack'
 
 gem 'pry-rails'
+
+gem 'rails-i18n'

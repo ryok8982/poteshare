@@ -26,7 +26,7 @@
 
 <div class="field">
 <%= f.label :profile_image %><br />
-<%= f.attachment_field :profile_image %>
+<%= f.attachment_field :profile_image, fallback: "no-image.png" %>
 </div>
 
 <div class="actions">
