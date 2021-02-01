@@ -68,3 +68,11 @@ gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 gem "bulma-rails"
+
+gem 'jquery-rails'
+
+gem 'ransack'
+
+gem 'pry-rails'
+
+gem 'rails-i18n'

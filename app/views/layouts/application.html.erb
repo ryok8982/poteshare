@@ -4,13 +4,74 @@
     <title>Poteshare</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/lib..." integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="./practice.js"></script>
+    <!-- drawer.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+    <!-- jquery &amp; iScroll -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+    <!-- drawer.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
   </head>
-
+  
   <body>
+  <header class="drawer drawer--right"  role="banner">
+    <div class="header-left">
+      <div class="header-logo">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-4" style="fony-family: cursive;">poteshare</h1>
+        <% end %>
+      </div>
+      <div class="header-form">
+        <%= form_tag(rooms_path,:method => 'get') do %>
+          <%= text_field_tag :search,"", class: "input block is-normal", placeholder: "エリアorキーワード" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="hedaer-right">
+    <% if user_signed_in? %>
+      <nav class="navbar is-black" role="navigation" aria-label="dropdown navigation">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <%= @name %>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item">
+              <%= link_to "ルーム登録", new_room_path, class: "button is-fullwidth" %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to "ルーム一覧", rooms_path, class: "button is-fullwidth" %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to "予約済ルーム一覧", room_books_path(current_user), class: "button is-fullwidth" %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-fullwidth" %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to "マイページ", user_path(current_user), class: "button is-fullwidth" %>
+            </a>
+          </div>
+        </div>
+      </nav>
+      
+    <% else %>
+      
+       
+        <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
+      
+    <% end %>
+    </div>
+  </header>
+  
+    
+  
+  <main role="main">
     <% if flash[:notice] %>
       <div class="notification is-info">
         <p class="notice"><%= notice %></p>
@@ -22,23 +83,21 @@
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
-    <header>
-      <%= link_to root_path, class: "navbar-item" do %>
-      <h1 class="title is-4" style="fony-family: cursive;">poteshare</h1>
-      <% end %>
-      
-      <% if user_signed_in? %> 
-      
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
-      
-      <% else %>
-      
-      <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
-      
-      <% end %>
-      
-      <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
-    </header>
-    <%= yield %>
-  </body>
+     <%= yield %>
+    <!-- Page content -->
+  </main>
+  <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      ©️2021 ryosuke onishi
+    </p>
+  </div>
+</footer>
+</body>
 </html>
+ <script>
+$(document).ready(function() {
+  $('.drawer').drawer();
+});
+</script>
+

@@ -1,0 +1,41 @@
+<article class="panel is-link check_par">
+          <p class="panel-heading ">
+            予約
+          </p>
+          <%= form_for [@room, @book] do |f| %>
+          　<%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <div class="field">
+              <p class="label">Price</p>
+              <div class="control">
+                ¥<%= @room.price %>/人
+              </div>
+            </div>
+            <div class="field">
+              <%= f.label :check_in, class: "label" %>
+              <div class="control has-icons-left has-icons-right">
+                <%= f.date_field :check_in, class: "input" %>
+              </div>
+            </div>
+            
+            <div class="field">
+              <%= f.label :check_out, class: "label" %>
+              <div class="control has-icons-left has-icons-right">
+                <%= f.date_field :check_out, class: "input" %>
+              </div>
+            </div>
+            
+            <div class="field">
+              <%= f.label :people, class: "label" %>
+              <div class="control has-icons-left has-icons-right">
+               <%= f.number_field :people, class: "input" %>
+              </div>
+            </div>
+            
+            <div class="field is-grouped is-grouped-centered">
+              <div class="control">
+                <%= f.submit '確定',class: " button is-link" %>
+              </div>
+            </div>
+            <% end %>
+        </article>

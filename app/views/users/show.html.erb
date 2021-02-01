@@ -1,2 +1,91 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="user-main">
+<h1 class="user-title">マイページ</h1>
+
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>アカウント</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <th>パスワード</th>
+              <td>＊＊＊＊＊＊＊＊＊＊</td>
+            </tr>
+            <tr>
+              <th>プロフィール</th>
+              <td><%= @user.profile %></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+<%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
+
+    </div>
+  </div>
+</div>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @user.rooms.each do |room| %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <%= link_to room_path(room) do %>
+                  <%= attachment_image_tag room, :room_image, class: "imags" %>
+                <% end %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <%= link_to room_path(room), class: "panel-block" do %>
+                    <span class="panel-icon">
+                      <i class="fas fa-book" aria-hidden="true"></i>
+                    </span>
+                    このルームを見る
+                  <% end %>
+                  <% if @user.id == current_user.id %>
+                    <%= link_to edit_room_path(room), class: "panel-block" do %>
+                      <span class="panel-icon">
+                        <i class="fas fa-edit"></i>
+                      </span>
+                      このルームを編集する
+                    <% end %>
+                    <%= link_to room_path(room), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
+                      <span class="panel-icon">
+                        <i class="fas fa-trash"></i>
+                      </span>
+                      このルームを削除する
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="content">
+                <time><%= room.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+

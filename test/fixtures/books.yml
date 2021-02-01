@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  room: one
+  user_id: 1
+  room_id: 1
+  check_in: 2021-01-20
+  check_out: 2021-01-20
+  people: 1
+
+two:
+  user: two
+  room: two
+  user_id: 1
+  room_id: 1
+  check_in: 2021-01-20
+  check_out: 2021-01-20
+  people: 1

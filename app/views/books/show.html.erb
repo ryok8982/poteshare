@@ -1,0 +1,56 @@
+
+<div class="book_show_main">
+<div class="column">
+    <article class="panel is-link">
+      <p class="panel-heading ">
+        予約内容確認
+      </p>
+         <div class="field check_book check_top">
+          <p class="label">ルーム名</p>
+          <div class="control has-icons-left has-icons-right">
+           <%= @room.title %>
+          </div>
+        </div>
+        <div class="field check_book">
+          <p class="label">料金</p>
+          <div class="control">
+            ¥<%= @room.price %>/日
+          </div>
+        </div>
+        <div class="field check_book">
+          <p class="label">チェックイン日</p>
+          <div class="control has-icons-left has-icons-right">
+            <%= @book.check_in %>
+          </div>
+        </div>
+        
+        <div class="field check_book">
+          <p class="label">チェックアウト日</p>
+          <div class="control has-icons-left has-icons-right">
+            <%= @book.check_out %>
+          </div>
+        </div>
+        
+        <div class="field check_book">
+          <p class="label">人数</p>
+          <div class="control has-icons-left has-icons-right">
+           <%= @book.people %>人
+          </div>
+        </div>
+        <div class="field check_book las">
+          <p class="label">合計金額</p>
+          <div class="control has-icons-left has-icons-right">
+           ¥<%= @price %>
+          </div>
+        </div>
+        <div class="field">
+          <p class="label">　</p>
+          <div class="control has-icons-left has-icons-right">
+          </div>
+        </div>
+        <div class="button-container">
+        <%= link_to "ホーム画面へ", root_path, class: "button is-success is-fullwidth" %>
+        </div>
+    </article>
+</div>
+</div>
